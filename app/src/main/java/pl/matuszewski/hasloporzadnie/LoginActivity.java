@@ -34,6 +34,21 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    public void goToPasswordChangerActivity(View view) {
+        Button passwordChangerButton = (Button)findViewById(R.id.button2);
+
+        Intent intent = new Intent(this, PasswordChangerActivity.class);
+
+        passwordChangerButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        startActivity(intent);
+                    }
+                });
+    }
+
     private boolean isPasswordCorrect( EditText passwordEditText ){
         return passwordEditText.getText().toString()
                 .equals("admin");
