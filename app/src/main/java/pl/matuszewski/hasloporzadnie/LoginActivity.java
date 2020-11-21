@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void goToLoginActivity(View view) {
+    public void goToNoteActivity(View view) {
         Button loginButton = (Button)findViewById(R.id.button);
         EditText passwordEditText   = (EditText)findViewById(R.id.editTextTextPassword);
 
@@ -27,8 +27,10 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        if( isPasswordCorrect(passwordEditText )){
+                        if( PasswordUtils.isPasswordCorrect( passwordEditText.getText().toString() )){
                             startActivity(intent);
+                        } else {
+                            System.out.println("Wrong password!");
                         }
                     }
                 });
@@ -49,8 +51,4 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private boolean isPasswordCorrect( EditText passwordEditText ){
-        return passwordEditText.getText().toString()
-                .equals("admin");
-    }
 }
