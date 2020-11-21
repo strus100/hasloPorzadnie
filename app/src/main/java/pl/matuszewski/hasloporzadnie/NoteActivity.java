@@ -30,11 +30,10 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     public void saveNote() {
-
-        EditText noteEditText   = (EditText)findViewById(R.id.editTextTextMultiLine);
-        TextView textView = (TextView) findViewById(R.id.textView2);
+        EditText noteEditText = (EditText)findViewById(R.id.editTextTextMultiLine);
 
         String note = readFromFile(getApplicationContext());
+
         noteEditText.setText(note);
 
         noteEditText.addTextChangedListener(new TextWatcher() {
@@ -57,7 +56,6 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private String readFromFile(Context context) {
-
         String ret = "";
 
         try {
@@ -96,4 +94,5 @@ public class NoteActivity extends AppCompatActivity {
             Log.e("Exception", "File write failed: " + e.toString());
         }
     }
+
 }

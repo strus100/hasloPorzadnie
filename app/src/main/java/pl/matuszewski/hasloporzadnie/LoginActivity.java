@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -23,13 +25,13 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NoteActivity.class);
 
         loginButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
+                new View.OnClickListener() {
+                    public void onClick(View view) {
                         if( PasswordUtils.isPasswordCorrect( passwordEditText.getText().toString() )){
                             startActivity(intent);
                         } else {
+                            Snackbar.make(view, "Wrong password!",1000)
+                                    .show();
                             System.out.println("Wrong password!");
                         }
                     }
@@ -42,8 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PasswordChangerActivity.class);
 
         passwordChangerButton.setOnClickListener(
-                new View.OnClickListener()
-                {
+                new View.OnClickListener() {
                     public void onClick(View view)
                     {
                         startActivity(intent);

@@ -1,7 +1,5 @@
 package pl.matuszewski.hasloporzadnie;
 
-import android.widget.EditText;
-
 public class PasswordUtils {
     private static String password = "admin";
 
