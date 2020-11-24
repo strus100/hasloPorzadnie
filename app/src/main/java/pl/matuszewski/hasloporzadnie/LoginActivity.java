@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
-                        if( PasswordUtils.isPasswordCorrect( passwordEditText.getText().toString() )){
+                        if( PasswordUtils.isPasswordCorrect( passwordEditText.getText().toString(), getApplicationContext() )){
                             startActivity(intent);
                         } else {
                             Snackbar.make(view, "Wrong password!",1000)

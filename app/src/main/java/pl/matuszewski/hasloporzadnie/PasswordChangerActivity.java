@@ -19,9 +19,9 @@ public class PasswordChangerActivity extends AppCompatActivity {
     }
 
     private boolean checkPassword(String oldPassword, String newPassword, String newPasswordRepeated, View view) {
-        if( PasswordUtils.isPasswordCorrect(oldPassword) ){
+        if( PasswordUtils.isPasswordCorrect(oldPassword, getApplicationContext()) ){
             if( newPassword.equals(newPasswordRepeated) ){
-                PasswordUtils.setPassword(newPassword);
+                PasswordUtils.setPassword(newPassword, getApplicationContext());
                 return true;
             } else {
                 Snackbar.make(view, "Passwords must be same!",1000)
