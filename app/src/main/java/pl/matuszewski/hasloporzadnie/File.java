@@ -62,4 +62,7 @@ public class File {
         }
     }
 
+    public boolean  isPasswordCreated( Context context ){
+        return readFromFile( context ).length() != 0 ;
+    }
 }
