@@ -7,7 +7,6 @@ import androidx.annotation.RequiresApi;
 
 import pl.matuszewski.hasloporzadnie.crypto.Hash;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class PasswordUtils {
     public static final String fileName = "pass.txt";
     private static File file = new File(fileName);
@@ -33,7 +32,7 @@ public class PasswordUtils {
     }
 
     private static void getPasswordFromFile( Context context ){
-        String readedFromFile = file.readFromFile( context );
+        String readedFromFile = file.readFromFile( context, false );
         if( readedFromFile.length() != 0 ){
             password = readedFromFile;
         }

@@ -18,23 +18,7 @@ import javax.crypto.spec.PBEKeySpec;
 
 import pl.matuszewski.hasloporzadnie.File;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class Hash {
-
-/*
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public static byte[] setSalt(Context context) {
-        File file = new File("salt.txt");
-        String saltStr = file.readFromFile(context);
-        if(saltStr.isEmpty()){
-            return prepareSalt();
-        } else {
-            return Base64.getDecoder().decode( saltStr );
-        }
-    }
-
-    private byte[] salt;
-*/
 
     private static byte[] decodeToByte(String s){
         return Base64.getDecoder().decode( s );
@@ -66,30 +50,5 @@ public class Hash {
         random.nextBytes(salt);
         return salt;
     }
-
-/*
-    public static String encryptOLD(String input)
-    {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-512");
-
-            byte[] messageDigest = md.digest(input.getBytes());
-
-            BigInteger no = new BigInteger(1, messageDigest);
-
-            String hashtext = no.toString(16);
-
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-
-            return hashtext;
-        }
-
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
-*/
 
 }

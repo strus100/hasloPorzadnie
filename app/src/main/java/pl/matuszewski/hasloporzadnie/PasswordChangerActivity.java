@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class PasswordChangerActivity extends AppCompatActivity {
 
     @Override

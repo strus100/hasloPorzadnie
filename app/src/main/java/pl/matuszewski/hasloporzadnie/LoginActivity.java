@@ -12,7 +12,6 @@ import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
 public class LoginActivity extends AppCompatActivity {
         Button loginButton;
 
@@ -24,11 +23,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (Button)findViewById(R.id.button);
 
         File file = new File(PasswordUtils.fileName);
-        if( file.isPasswordCreated( getApplicationContext() ) ){
+        /*if( file.isPasswordCreated( getApplicationContext() ) ){
             loginButton.setEnabled( true );
         } else {
             loginButton.setEnabled( false );
-        }
+        }*/
 
     }
 

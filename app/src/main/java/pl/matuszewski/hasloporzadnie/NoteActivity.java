@@ -1,8 +1,10 @@
 package pl.matuszewski.hasloporzadnie;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,7 +34,7 @@ public class NoteActivity extends AppCompatActivity {
     public void saveNote() {
         EditText noteEditText = (EditText)findViewById(R.id.editTextTextMultiLine);
 
-        String note = file.readFromFile(getApplicationContext());
+        String note = file.readFromFile(getApplicationContext(), true);
 
         noteEditText.setText(note);
 
