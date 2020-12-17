@@ -48,7 +48,7 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String note = noteEditText.getText().toString();
-                file.writeToFile(note, getApplicationContext());
+                file.writeToFileNote(note, getApplicationContext());
             }
 
             @Override

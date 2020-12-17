@@ -23,11 +23,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = (Button)findViewById(R.id.button);
 
         File file = new File(PasswordUtils.fileName);
-        /*if( file.isPasswordCreated( getApplicationContext() ) ){
+        if( file.isPasswordCreated( getApplicationContext() ) ){
             loginButton.setEnabled( true );
         } else {
             loginButton.setEnabled( false );
-        }*/
+        }
 
     }
 
@@ -40,6 +40,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View view) {
+
+                        if( passwordEditText.getText().toString().equals("")  ){
+                            return;
+                        }
+
                         if( PasswordUtils.isPasswordCorrect( passwordEditText.getText().toString(), getApplicationContext() )){
                             startActivity(intent);
                         } else {

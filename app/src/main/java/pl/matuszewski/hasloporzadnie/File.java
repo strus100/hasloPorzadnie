@@ -22,6 +22,7 @@ public class File {
         this.fileName = fileName;
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public String readFromFile(Context context, boolean isNote) {
         String ret = "";
@@ -61,12 +62,15 @@ public class File {
         }
     }
 
-
-     @RequiresApi(api = Build.VERSION_CODES.O)
-     public void writeToFile(String data, Context context) {
+    public void writeToFileNote(String data, Context context) {
         KeyStoreSymmetric keyStoreSymmetric = new KeyStoreSymmetric(fileName);
         data = keyStoreSymmetric.encryption(data);
 
+        writeToFile(data, context);
+    }
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+     public void writeToFile(String data, Context context) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
